@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <div th:style="@{'width:'+${rect.width}+'px; height:' + ${rect.height} + 'px; background:'+${rect.color}+';'}" th:text="${rect.name}"></div>
+        <form class="create-form" th:action="@{'/rectangle/update/' + ${rect.rid}}" method="post">
+            <div>
+                <label for="name">name</label><br>
+                <input name="name" type="text" th:value="${rect.name}"/>
+            </div>
+            <div class="form-width-section">
+                <div>
+                    <label for="width">width</label><br>
+                    <input name="width" type="number" th:value="${rect.width}"/>
+                </div>
+                <div>
+                    <label for="height">height</label><br>
+                    <input name="height" type="number" th:value="${rect.height}"/>
+                </div>
+            </div>
+            <div>
+                <label for="color">pick A color</label><br>
+                <input name="color" type="color" th:value="${rect.color}"/>
+            </div>
+            <button class="submitBtn" type="submit"> update rectangle</button>
+        </form>
+    </div>
+</body>
+</html>

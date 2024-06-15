@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h1> The Rectangle App</h1>
+        <br/>
+        <ul class="list-class" th:each="rect: ${rects}">
+            <div class="list-elem">
+                <a th:href="@{'/rectangle/get/' + ${rect.rid}}" th:text="${rect.name}"></a>
+                <p th:text="${rect.color}"></p>
+                <a th:href="@{'/rectangle/delete/' + ${rect.rid}}">
+                    <button class="deleteBtn">DELETE</button>
+                </a>
+            </div>
+        </ul>
+        <br/>
+        <br/>
+        <a th:href="@{'/create-rectangle'}">
+            <button class="addBtn">+</button>
+        </a>
+    </div>
+</body>
+</html>
