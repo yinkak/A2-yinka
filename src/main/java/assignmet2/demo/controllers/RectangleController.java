@@ -27,19 +27,19 @@ public class RectangleController {
         //get all rectangles in database
         List<Rectangle> rectangles = rectangleRepo.findAll();
         model.addAttribute("rects", rectangles);
-        return "/pages/home";
+        return "pages/home";
     }
 
     @GetMapping("rectangle/get/{rid}")
     public String findRectangle(@PathVariable("rid") int rid, Model model, HttpServletResponse response){
         Rectangle rectangle = rectangleRepo.findById(rid);
         model.addAttribute("rect", rectangle);
-        return "/pages/rectangleView";
+        return "pages/rectangleView";
     }
 
     @GetMapping("create-rectangle")
     public String createPage() {
-        return "/pages/addNewRectangle";
+        return "pages/addNewRectangle";
     }
 
 
